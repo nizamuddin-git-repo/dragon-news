@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../Shared/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
 
@@ -18,10 +19,13 @@ const Register = () => {
     }
 
 
-
-
     return (
         <div>
+            <Helmet>
+                <title>
+                Register
+                </title>
+            </Helmet>
       <Navbar></Navbar>
       <div>
         <h2 className="text-3xl text-center">Please Register </h2>

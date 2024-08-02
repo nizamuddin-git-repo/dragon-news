@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../Shared/Navbar";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 
@@ -11,6 +12,11 @@ const Login = () => {
     }
     return (
         <div className="mt-5">
+            <Helmet>
+                <title>
+                    Login
+                </title>
+            </Helmet>
       <Navbar></Navbar>
      <div>
      <h2 className="text-3xl text-center">Please login </h2>
