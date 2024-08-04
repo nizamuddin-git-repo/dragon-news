@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import Navbar from "../../Shared/Navbar";
 import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
+  const {createUser} = useContext(AuthContext);
+
 
     const handleRegister = (e) =>{
         e.preventDefault();
@@ -15,7 +19,13 @@ const Register = () => {
         const password = form.get('password');
 
         console.log(name, photo, email, password);
-
+        createUser(email, password)
+        .then(result =>{
+          console.log(result.user)
+        })
+        .catch(error =>{
+          console.error(error);
+        })
     }
 
 
