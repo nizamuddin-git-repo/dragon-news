@@ -1,15 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../../Shared/Navbar";
 import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
 
+  const {singIn} = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log('location in tha login page', location)
     const handleLogin = (e) =>{
         e.preventDefault();
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
-        console.log(form.get('password'));
+        const email = form.get('email')
+        const password = form.get('password')
+        console.log(email, password);
+        singIn(email, password)
+        .then(result =>{
+          console.log(result.user);
+          navigate(location?.state ? location.state : '/')
+        })
+        .catch(error =>{
+          console.error(error)
+        })
     }
+
     return (
         <div className="mt-5">
             <Helmet>
