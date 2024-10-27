@@ -66,30 +66,10 @@ const Navbar = () => {
           />
         </div>
         {user ? (
-          <a
-            href="#_"
-            className="px-5 py-2.5 relative rounded group font-medium text-white ml-4"
-          >
-            <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
-            <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
-            <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
-            <span onClick={handleSingOut} className="relative ">
-              Sing Out
-            </span>
-          </a>
+          <button onClick={handleSingOut} className="btn btn-outline btn-primary ml-4">LogOut</button>
         ) : (
           <Link to="/login">
-            <a
-              href="#_"
-              className="px-5 py-2.5 relative rounded group font-medium text-white ml-4"
-            >
-              <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
-              <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-purple-600 to-blue-500"></span>
-              <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
-              <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-purple-600 from-blue-500"></span>
-              <span className="relative ">Login</span>
-            </a>
+            <button className="btn btn-outline btn-secondary ml-4">Login</button>
           </Link>
         )}
       </div>
